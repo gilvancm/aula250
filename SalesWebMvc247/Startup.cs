@@ -31,15 +31,23 @@ namespace SalesWebMvc247
                       //  options.UseSqlServer(Configuration.GetConnectionString("SalesWebMvc247Context")));
                           //ele acresentou os servicos do mysql              classe de context      delegate                 nome do assemble no do projeto  
                          options.UseMySql(Configuration.GetConnectionString("SalesWebMvc247Context"), builder => builder.MigrationsAssembly("SalesWebMvc247")));
-                         //lembre do provide instalar o pacore MySql
+            //lembre do provide instalar o pacore MySql
+          
+            //registrar nosso serviço no  injeção de dependencia da aplicação para copiar os registros /objetos
+            services.AddScoped<SeedingService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        //acresentei SeedingService seedingService
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, SeedingService seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                //chamar o metodo abaixo
+                seedingService.Seed();
+                
             }
             else
             {
