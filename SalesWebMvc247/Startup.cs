@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc247.Data;
+using SalesWebMvc247.Services;
 
 namespace SalesWebMvc247
 {
@@ -35,6 +36,7 @@ namespace SalesWebMvc247
           
             //registrar nosso serviço no  injeção de dependencia da aplicação para copiar os registros /objetos
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
 
         }
 
