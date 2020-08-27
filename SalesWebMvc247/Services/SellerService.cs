@@ -31,6 +31,9 @@ namespace SalesWebMvc247.Services
         //mais que faz ação é o controle
         public void Insert(Seller obj)
         {
+            //pra que o vendedor não fique orfã deo departmento
+            obj.Department = _context.Department.First();
+            
             _context.Add(obj);
             // para confimar a operação no banco de dados com SaveChanges()
             _context.SaveChanges();

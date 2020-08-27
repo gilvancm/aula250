@@ -1,3 +1,4 @@
+C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\appsettings.json
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -130,7 +131,6 @@ C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\D
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
-C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\linux-musl-x64\native\libe_sqlite3.so
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\libe_sqlite3.so
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\linux-x86\native\libe_sqlite3.so
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
@@ -141,6 +141,7 @@ C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\D
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.csprojAssemblyReference.cache
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.AssemblyInfoInputs.cache
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.AssemblyInfo.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.csproj.CoreCompileInputs.cache
@@ -157,6 +158,8 @@ C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\D
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Departments\Index.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Sellers\Create.cshtml.g.cs
+C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Sellers\Index.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -171,6 +174,3 @@ C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\D
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.dll
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.pdb
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.genruntimeconfig.cache
-C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.csprojAssemblyReference.cache
-C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Sellers\Index.cshtml.g.cs
-C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Sellers\Create.cshtml.g.cs
