@@ -27,5 +27,14 @@ namespace SalesWebMvc247.Services
            
         }
 
+        //criar um metodo pra inserir o (Seller)vendedor no banco de dados
+        //mais que faz ação é o controle
+        public void Insert(Seller obj)
+        {
+            _context.Add(obj);
+            // para confimar a operação no banco de dados com SaveChanges()
+            _context.SaveChanges();
+        }
+
     }
 }

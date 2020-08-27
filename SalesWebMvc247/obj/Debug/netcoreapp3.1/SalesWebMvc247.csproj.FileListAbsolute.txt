@@ -173,3 +173,4 @@ C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\D
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.genruntimeconfig.cache
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\SalesWebMvc247.csprojAssemblyReference.cache
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Sellers\Index.cshtml.g.cs
+C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Sellers\Create.cshtml.g.cs
