@@ -37,6 +37,7 @@ namespace SalesWebMvc247
             //registrar nosso serviço no  injeção de dependencia da aplicação para copiar os registros /objetos
             services.AddScoped<SeedingService>();
             services.AddScoped<SellerService>();
+            services.AddScoped<DepartmentService>();
 
         }
 

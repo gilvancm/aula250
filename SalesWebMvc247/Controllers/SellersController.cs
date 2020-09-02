@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SalesWebMvc247.Models;
+using SalesWebMvc247.Models.ViewModels;
 using SalesWebMvc247.Services;
 
 namespace SalesWebMvc247.Controllers
@@ -12,10 +13,12 @@ namespace SalesWebMvc247.Controllers
     {
 
         private readonly SellerService _sellerService;
+        private readonly DepartmentService _departmentService;
 
-        public SellersController(SellerService sellerService)
+        public SellersController(SellerService sellerService, DepartmentService departmentService)
         {
             _sellerService = sellerService;
+            _departmentService = departmentService;
         }
 
         public IActionResult Index()
@@ -26,7 +29,10 @@ namespace SalesWebMvc247.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var departments = _departmentService.FindAll();
+            //intanciou abaixo
+            var viewModel = new SellerFormViewModel { Departments = departments };  //departamentos populados
+            return View(viewModel);  // retorno vai receber este objeto pronto
         }
 
         // criar a ação de inserir no banco de dados

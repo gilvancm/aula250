@@ -32,7 +32,8 @@ namespace SalesWebMvc247.Services
         public void Insert(Seller obj)
         {
             //pra que o vendedor não fique orfã deo departmento
-            obj.Department = _context.Department.First();
+            // depois tive que tirar da seleção não existe default
+          //  obj.Department = _context.Department.First();
             
             _context.Add(obj);
             // para confimar a operação no banco de dados com SaveChanges()
