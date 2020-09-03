@@ -55,11 +55,13 @@
                          @Html.DisplayFor(modelItem => item.BaseSalary)
                       </td>
 
-                      <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                      </td>
+                       <td>
+                           <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                           <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                           <!--no componente delete ele passa a rota  @item.Id">Delete -->
+                           <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                       </td>
 
                 </tr>
 

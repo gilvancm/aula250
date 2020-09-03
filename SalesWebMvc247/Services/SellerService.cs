@@ -39,6 +39,26 @@ namespace SalesWebMvc247.Services
             // para confimar a operação no banco de dados com SaveChanges()
             _context.SaveChanges();
         }
+        //deletar o vendedor
+        //primeiro encontra o Id do vendedor com metodo FindById()
+        public Seller FindById(int id)
+        {
+            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+
+        }
+        //agora implementar o metodo remover agora é uma ação de remover
+
+        public void Remove(int? id)
+        {
+            //aqui eu pego o objeto na mão
+            var obj = _context.Seller.Find(id);
+            // agora removi o objeto do dbsete
+            _context.Seller.Remove(obj);
+            //agora tenho que confimar pra Entity Framework remover do banco de dados
+            _context.SaveChanges();
+        
+        }
+
 
     }
 }
