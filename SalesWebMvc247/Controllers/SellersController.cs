@@ -76,6 +76,25 @@ namespace SalesWebMvc247.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //criar a detalhes detalhes
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            //acionar o FindById é com control+click
+            var obj = _sellerService.FindById(id.Value);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+
 
     }
 }

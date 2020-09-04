@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SalesWebMvc247.Data;
 using SalesWebMvc247.Models;
+
 
 namespace SalesWebMvc247.Services
 {
@@ -42,8 +44,10 @@ namespace SalesWebMvc247.Services
         //deletar o vendedor
         //primeiro encontra o Id do vendedor com metodo FindById()
         public Seller FindById(int id)
+
         {
-            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+            //Include(obj => obj.Department) (namespace: Microsoft.EntityFrameworkCore) pra fazer join das tabelas
+            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
 
         }
         //agora implementar o metodo remover agora é uma ação de remover
