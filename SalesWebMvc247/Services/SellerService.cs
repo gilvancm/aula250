@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMvc247.Data;
 using SalesWebMvc247.Models;
-
+using SalesWebMvc247.Services.Exceptions;
 
 namespace SalesWebMvc247.Services
 {
@@ -61,6 +61,31 @@ namespace SalesWebMvc247.Services
             //agora tenho que confimar pra Entity Framework remover do banco de dados
             _context.SaveChanges();
         
+        }
+
+        public void Update(Seller obj)
+        {
+            //any (verifica se no banco existe alguma coisa com a condição que vc vai passar aqui abaixo
+            //predicado x que leva =>oque é banco(vendedor x da tabela) e objeto que recebemos (obj.Id) 
+            if (!_context.Seller.Any(x => x.Id == obj.Id))
+            {
+                throw new NotFoundException("Id not found");
+            }
+
+            try
+            {
+                _context.Update(obj);
+                _context.SaveChanges();
+
+            }
+            //execção de concorrencia ao acessar o banco de dados EntityFrameworkCore nivel de banco
+            catch (DbUpdateConcurrencyException e)
+            {
+                //lançando em nivel de camada de serviço  ---- servico e controle se comunica
+                throw new DbConcurrencyException(e.Message); 
+            }
+            
+
         }
 
 
