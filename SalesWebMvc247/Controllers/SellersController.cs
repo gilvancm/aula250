@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -55,14 +56,17 @@ namespace SalesWebMvc247.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+               // return NotFound();
+                // passomos um ojeto anonimo ----- new { message = "Id not provided == Id não foi fornecido( nulo)" });
+                return RedirectToAction(nameof(Error), new { message = "Id not provided == Id não foi fornecido( nulo)" });
             }
 
             var obj = _sellerService.FindById(id.Value);
 
             if (obj == null)
             {
-                return NotFound();
+                // return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found == Id não Existe" });
             }
 
             return View(obj);
@@ -82,14 +86,16 @@ namespace SalesWebMvc247.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                // return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not provided == Id não foi fornecido( nulo)" });
             }
             //acionar o FindById é com control+click
             var obj = _sellerService.FindById(id.Value);
 
             if (obj == null)
             {
-                return NotFound();
+                // return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found == Id não Existe" });
             }
 
             return View(obj);
@@ -99,14 +105,16 @@ namespace SalesWebMvc247.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                // return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not provided == Id não foi fornecido( nulo)" });
             }
 
             var obj = _sellerService.FindById(id.Value);
 
             if (obj == null)
             {
-                return NotFound();
+                // return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id not found == Id não Existe" });
             }
 
             List<Department> departments = _departmentService.FindAll();
@@ -122,7 +130,8 @@ namespace SalesWebMvc247.Controllers
         {
            if(id != seller.Id)
             {
-                return BadRequest();
+               // return BadRequest();
+                return RedirectToAction(nameof(Error), new { message = "Id mismatch == Id não Corresponde" });
             }
 
 
@@ -132,19 +141,38 @@ namespace SalesWebMvc247.Controllers
                 return RedirectToAction(nameof(Index));
 
             }
-            catch (NotFoundException)
+            /*
+            // estes 2 caso abaixo como são exeções vai ser diferente o tratamento --- crio um apelido e
+            catch (NotFoundException e)
             {
-                return NotFound();
+                 // return NotFound();
+                   return RedirectToAction(nameof(Error), new { message = e.Message });
             }
-            catch (DbConcurrencyException)
+            catch (DbConcurrencyException e)
             {
-                return BadRequest();
+                  // return BadRequest();
+                 return RedirectToAction(nameof(Error), new { message = e.Message });
+            }
+            */
+            // podemos facilitar sua vida na expessão de erro faço aplicação na hieraquia
+            catch (ApplicationException e)
+            {
+                return RedirectToAction(nameof(Error), new { message = e.Message });
             }
 
 
         }
+        //acção da pagina de erro(carregar)
+        public IActionResult Error(string message)
+        {
+            var viewModel = new ErrorViewModel
+            {
+                Message = message,
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
 
-
+            return View(viewModel);
+        }
 
 
         
