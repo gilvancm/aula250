@@ -23,51 +23,53 @@ namespace SalesWebMvc247.Services
 
         // no entanto vai excutar uma busca sincrona de pois vamos alterar pra assicrona
 
-        public List<Seller> FindAll()
+        public async Task<List<Seller>> FindAllAsync()
         {
-            return _context.Seller.ToList();
+            return await _context.Seller.ToListAsync();
            
         }
 
         //criar um metodo pra inserir o (Seller)vendedor no banco de dados
         //mais que faz ação é o controle
-        public void Insert(Seller obj)
+        public async Task InsertAsync(Seller obj)  // troca void por Task
         {
             //pra que o vendedor não fique orfã deo departmento
             // depois tive que tirar da seleção não existe default
           //  obj.Department = _context.Department.First();
             
-            _context.Add(obj);
+            _context.Add(obj); // a operação add é só feito em memoria
             // para confimar a operação no banco de dados com SaveChanges()
-            _context.SaveChanges();
+            await _context.SaveChangesAsync(); // a saveChanges como é no servidor banco ai coloca
         }
         //deletar o vendedor
         //primeiro encontra o Id do vendedor com metodo FindById()
-        public Seller FindById(int id)
+        public async Task<Seller> FindByIdAsync(int id)
 
         {
             //Include(obj => obj.Department) (namespace: Microsoft.EntityFrameworkCore) pra fazer join das tabelas
-            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
+            return await _context.Seller.Include(obj => obj.Department).FirstOrDefaultAsync(obj => obj.Id == id);
 
         }
         //agora implementar o metodo remover agora é uma ação de remover
 
-        public void Remove(int? id)
+        public async Task RemoveAsync(int? id)
         {
             //aqui eu pego o objeto na mão
-            var obj = _context.Seller.Find(id);
+            var obj = await _context.Seller.FindAsync(id);
             // agora removi o objeto do dbsete
             _context.Seller.Remove(obj);
             //agora tenho que confimar pra Entity Framework remover do banco de dados
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         
         }
 
-        public void Update(Seller obj)
+        public async Task UpdateAsync(Seller obj)
         {
             //any (verifica se no banco existe alguma coisa com a condição que vc vai passar aqui abaixo
             //predicado x que leva =>oque é banco(vendedor x da tabela) e objeto que recebemos (obj.Id) 
-            if (!_context.Seller.Any(x => x.Id == obj.Id))
+
+            bool hasAny = await _context.Seller.AnyAsync(x => x.Id == obj.Id);
+            if(!hasAny)
             {
                 throw new NotFoundException("Id not found");
             }
@@ -75,7 +77,7 @@ namespace SalesWebMvc247.Services
             try
             {
                 _context.Update(obj);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
 
             }
             //execção de concorrencia ao acessar o banco de dados EntityFrameworkCore nivel de banco

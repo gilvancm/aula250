@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace SalesWebMvc247.Services
@@ -19,9 +20,11 @@ namespace SalesWebMvc247.Services
         }
 
         //criamos abaixo um metodos pra retornar todos os departamentos da lista
-        public List<Department> FindAll()
+        //Tacks é um objeto que emcapsula o processamento assicrona  -- async assinatura do metodo
+        public async Task<List<Department>> FindAllAsync()  // pertnece ----  using System.Threading.Tasks;   
+        //o sufixo Async não é obrigatorio mais é recomendado é recomandação da plantaforma c# 
         {
-            return _context.Department.OrderBy(x => x.Name).ToList();
+            return await _context.Department.OrderBy(x => x.Name).ToListAsync(); //oListAsync pertence a using Microsoft.EntityFrameworkCore;
         }
     }
 }

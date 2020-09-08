@@ -23,15 +23,15 @@ namespace SalesWebMvc247.Controllers
             _departmentService = departmentService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult>  Index()  // temos que respeitar a chamada do controle Index não muda 
         {
-            var list = _sellerService.FindAll();
+            var list = await _sellerService.FindAllAsync();
             return View(list);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            var departments = _departmentService.FindAll();
+            var departments = await _departmentService.FindAllAsync();
             //intanciou abaixo
             var viewModel = new SellerFormViewModel { Departments = departments };  //departamentos populados
             return View(viewModel);  // retorno vai receber este objeto pronto
@@ -42,7 +42,7 @@ namespace SalesWebMvc247.Controllers
         //vamos colocar 2 ações abaixo e vamos colocar um aniteicho
         [HttpPost]
         [ValidateAntiForgeryToken]  // par minha apalicação não sofra ataque CSRF , quando alguem aprovewita de sua atenticacao e manda dados maliciosos
-        public IActionResult Create(Seller seller)
+        public async Task<IActionResult> Create(Seller seller)
         {
             //verifico se o model não foi validado   -- vai acontecer enquanto o usaruio não terminar de preencher o formulario 1 se
             //não deu certo vou ter de alterar pra pegar o viewModel
@@ -55,13 +55,13 @@ namespace SalesWebMvc247.Controllers
             //nova instanciação
             if (!ModelState.IsValid)
             {
-                var departments = _departmentService.FindAll();
+                var departments = await _departmentService.FindAllAsync();
                 var viewModel = new SellerFormViewModel { Seller = seller, Departments = departments };
                 return View(viewModel);
             }
 
 
-            _sellerService.Insert(seller);
+            await _sellerService.InsertAsync(seller);
             //para redirecionar 
             //return RedirectToAction("Index");
             return RedirectToAction(nameof(Index));
@@ -69,7 +69,7 @@ namespace SalesWebMvc247.Controllers
         }
 
         // ? do tipo valor opcional
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -78,7 +78,7 @@ namespace SalesWebMvc247.Controllers
                 return RedirectToAction(nameof(Error), new { message = "Id not provided == Id não foi fornecido( nulo)" });
             }
 
-            var obj = _sellerService.FindById(id.Value);
+            var obj = await _sellerService.FindByIdAsync(id.Value);
 
             if (obj == null)
             {
@@ -92,14 +92,14 @@ namespace SalesWebMvc247.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _sellerService.Remove(id);
+            await _sellerService.RemoveAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
         //criar a detalhes detalhes
-        public IActionResult Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -107,7 +107,7 @@ namespace SalesWebMvc247.Controllers
                 return RedirectToAction(nameof(Error), new { message = "Id not provided == Id não foi fornecido( nulo)" });
             }
             //acionar o FindById é com control+click
-            var obj = _sellerService.FindById(id.Value);
+            var obj = await _sellerService.FindByIdAsync(id.Value);
 
             if (obj == null)
             {
@@ -118,7 +118,7 @@ namespace SalesWebMvc247.Controllers
             return View(obj);
         }
 
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -126,7 +126,7 @@ namespace SalesWebMvc247.Controllers
                 return RedirectToAction(nameof(Error), new { message = "Id not provided == Id não foi fornecido( nulo)" });
             }
 
-            var obj = _sellerService.FindById(id.Value);
+            var obj = await _sellerService.FindByIdAsync(id.Value);
 
             if (obj == null)
             {
@@ -134,7 +134,7 @@ namespace SalesWebMvc247.Controllers
                 return RedirectToAction(nameof(Error), new { message = "Id not found == Id não Existe" });
             }
 
-            List<Department> departments = _departmentService.FindAll();
+            List<Department> departments = await _departmentService.FindAllAsync();
 
             SellerFormViewModel viewModel = new SellerFormViewModel { Seller = obj, Departments = departments };
 
@@ -143,7 +143,7 @@ namespace SalesWebMvc247.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id , Seller seller)
+        public async Task<IActionResult> Edit(int id , Seller seller)
         {
             //verifico se o model não foi validado  -- vai acontecer enquanto o usaruio não terminar de preencher o formulario 1 se
             /*
@@ -155,7 +155,7 @@ namespace SalesWebMvc247.Controllers
             //nova instanciação
             if (!ModelState.IsValid)
             {
-                var departments = _departmentService.FindAll();
+                var departments = await _departmentService.FindAllAsync();
                 var viewModel = new SellerFormViewModel { Seller = seller, Departments = departments };
                 return View(viewModel);
             }
@@ -169,7 +169,7 @@ namespace SalesWebMvc247.Controllers
 
             try
             {
-                _sellerService.Update(seller);
+               await _sellerService.UpdateAsync(seller);
                 return RedirectToAction(nameof(Index));
 
             }
@@ -195,6 +195,7 @@ namespace SalesWebMvc247.Controllers
 
         }
         //acção da pagina de erro(carregar)
+        // a ação de erro não pode ser assicrona porque ela não acesso a dados
         public IActionResult Error(string message)
         {
             var viewModel = new ErrorViewModel
