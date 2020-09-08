@@ -44,6 +44,23 @@ namespace SalesWebMvc247.Controllers
         [ValidateAntiForgeryToken]  // par minha apalicação não sofra ataque CSRF , quando alguem aprovewita de sua atenticacao e manda dados maliciosos
         public IActionResult Create(Seller seller)
         {
+            //verifico se o model não foi validado   -- vai acontecer enquanto o usaruio não terminar de preencher o formulario 1 se
+            //não deu certo vou ter de alterar pra pegar o viewModel
+            /*
+             if (!ModelState.IsValid)
+             {
+                 return View(seller);
+             }
+             */
+
+            if (!ModelState.IsValid)
+            {
+                var departments = _departmentService.FindAll();
+                var viewModel = new SellerFormViewModel { Seller = seller, Departments = departments };
+                return View(viewModel);
+            }
+
+
             _sellerService.Insert(seller);
             //para redirecionar 
             //return RedirectToAction("Index");
@@ -128,7 +145,21 @@ namespace SalesWebMvc247.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id , Seller seller)
         {
-           if(id != seller.Id)
+            //verifico se o model não foi validado  -- vai acontecer enquanto o usaruio não terminar de preencher o formulario 1 se
+            /*
+            if (!ModelState.IsValid)
+            {
+                return View(seller);
+            }
+            */
+            if (!ModelState.IsValid)
+            {
+                var departments = _departmentService.FindAll();
+                var viewModel = new SellerFormViewModel { Seller = seller, Departments = departments };
+                return View(viewModel);
+            }
+
+            if (id != seller.Id)
             {
                // return BadRequest();
                 return RedirectToAction(nameof(Error), new { message = "Id mismatch == Id não Corresponde" });
