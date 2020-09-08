@@ -52,7 +52,7 @@ namespace SalesWebMvc247.Controllers
                  return View(seller);
              }
              */
-
+            //nova instanciação
             if (!ModelState.IsValid)
             {
                 var departments = _departmentService.FindAll();
@@ -152,6 +152,7 @@ namespace SalesWebMvc247.Controllers
                 return View(seller);
             }
             */
+            //nova instanciação
             if (!ModelState.IsValid)
             {
                 var departments = _departmentService.FindAll();
