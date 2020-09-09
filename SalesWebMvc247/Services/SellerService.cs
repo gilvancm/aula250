@@ -72,7 +72,7 @@ namespace SalesWebMvc247.Services
             {
                 ///aqui vamos lançar no nivel de serviço aesseção
               //  throw new IntegrityException(e.Message);
-                throw new IntegrityException("Não podemos excluir o registro, existe Sales");
+                throw new IntegrityException("Não podemos excluir o registro de Saller, existe Sales");
             }
         
 
