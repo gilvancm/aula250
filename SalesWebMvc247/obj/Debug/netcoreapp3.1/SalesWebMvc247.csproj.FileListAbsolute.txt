@@ -158,6 +158,9 @@ C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\D
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Departments\Index.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\SalesRecords\GroupingSearch.cshtml.g.cs
+C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\SalesRecords\Index.cshtml.g.cs
+C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\SalesRecords\SimpleSearch.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Sellers\Create.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Sellers\Delete.cshtml.g.cs
 C:\aula csharp\projeto_aula\aulas\Aula8etapa\SalesWebMvc247\SalesWebMvc247\obj\Debug\netcoreapp3.1\Razor\Views\Sellers\Details.cshtml.g.cs
