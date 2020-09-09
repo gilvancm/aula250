@@ -7,6 +7,9 @@ using SalesWebMvc247.Data;
 using SalesWebMvc247.Models;
 using SalesWebMvc247.Services.Exceptions;
 
+
+//acima são os imports
+
 namespace SalesWebMvc247.Services
 {
     public class SellerService
@@ -52,15 +55,28 @@ namespace SalesWebMvc247.Services
         }
         //agora implementar o metodo remover agora é uma ação de remover
 
-        public async Task RemoveAsync(int? id)
+        public async Task RemoveAsync(int id)
         {
-            //aqui eu pego o objeto na mão
-            var obj = await _context.Seller.FindAsync(id);
-            // agora removi o objeto do dbsete
-            _context.Seller.Remove(obj);
-            //agora tenho que confimar pra Entity Framework remover do banco de dados
-            await _context.SaveChangesAsync();
+
+            try {
+
+                //aqui eu pego o objeto na mão
+                var obj = await _context.Seller.FindAsync(id);
+                // agora removi o objeto do dbsete 
+                _context.Seller.Remove(obj);
+                //agora tenho que confimar pra Entity Framework remover do banco de dados
+                await _context.SaveChangesAsync();
+
+            }
+            catch(DbUpdateException e) //DbUpdateException   ----  interceptar essa essessão que é do EntityFrameworkCore
+            {
+                ///aqui vamos lançar no nivel de serviço aesseção
+              //  throw new IntegrityException(e.Message);
+                throw new IntegrityException("Não podemos excluir o registro, existe Sales");
+            }
         
+
+
         }
 
         public async Task UpdateAsync(Seller obj)
