@@ -43,6 +43,32 @@ namespace SalesWebMvc247.Services
 
         }
 
+        public async Task<List<IGrouping<Department,SalesRecord>>> FindByDateGroupingAsync(DateTime? minDate, DateTime? maxDate)
+        {
+            /// é um dbsete ---- _context.SalesRecord select obj
+            // com este resullado criamos um objeto result Iqueryable  === questionável ai vou pode utilizar e criar mais consltas 
+            //vamos poder acresentar mais detalhes
+            var result = from obj in _context.SalesRecord select obj;
+
+            if (minDate.HasValue)
+            {
+                result = result.Where(x => x.Date >= minDate.Value);
+            }
+            if (maxDate.HasValue)
+            {
+                result = result.Where(x => x.Date <= maxDate.Value);
+            }
+            return await result
+            .Include(x => x.Seller)  //EntityFrameworkCore
+            .Include(x => x.Seller.Department) //EntityFrameworkCore
+            .OrderByDescending(x => x.Date)  // linq
+            .GroupBy(x => x.Seller.Department)
+            .ToListAsync();
+
+
+
+        }
+
 
     }
 }
