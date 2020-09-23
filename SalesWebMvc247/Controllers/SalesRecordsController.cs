@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SalesWebMvc247.Services;
 
 
@@ -59,13 +60,10 @@ namespace SalesWebMvc247.Controllers
           // vou passar este dados minDat e maxDate lá  pra minha view com o dicionario ViewDate
             ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
             ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
-                      
-
             var result = await _salesRecordService.FindByDateGroupingAsync(minDate, maxDate);
-
-
-
             return View(result);
+       
+        
         }
 
 

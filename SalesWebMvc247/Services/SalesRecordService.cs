@@ -4,6 +4,7 @@ using SalesWebMvc247.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace SalesWebMvc247.Services
@@ -49,7 +50,6 @@ namespace SalesWebMvc247.Services
             // com este resullado criamos um objeto result Iqueryable  === questionável ai vou pode utilizar e criar mais consltas 
             //vamos poder acresentar mais detalhes
             var result = from obj in _context.SalesRecord select obj;
-
             if (minDate.HasValue)
             {
                 result = result.Where(x => x.Date >= minDate.Value);
